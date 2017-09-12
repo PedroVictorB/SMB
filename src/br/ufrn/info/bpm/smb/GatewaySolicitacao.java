@@ -4,23 +4,23 @@ import br.ufrn.info.bpm.api.GatewayObject;
 
 public class GatewaySolicitacao extends GatewayObject<Solicitacao> {
 	
-	public GatewaySolicitacao(Solicitacao progressao) {
-		super(progressao);
+	public GatewaySolicitacao(Solicitacao solicitacao) {
+		super(solicitacao);
 	}
 	
-	public boolean isParecerOk() {
+	public boolean isAnaliseCoordenadorOk() {
 		Solicitacao p = SolicitacaoDAO.getInstance().procurarSolicitacao(getSigId());
 		if (!p.isAnaliseCoordenador()) {
-			throw new RuntimeException("Informação não disponível: getParecerOk()");
+			throw new RuntimeException("Informação não disponível: isAnaliseCoordenadorOk()");
 		} else {
 			return p.isAnaliseCoordenador();
 		}
 	}
 	
-	public boolean isParecerRelatorOk() {
+	public boolean isAnaliseSetorComprasOk() {
 		Solicitacao p = SolicitacaoDAO.getInstance().procurarSolicitacao(getSigId());
 		if (!p.isAnaliseSetorDeCompras()) {
-			throw new RuntimeException("Informação não disponível: getParecerRelatorOk()");
+			throw new RuntimeException("Informação não disponível: isAnaliseSetorComprasOk()");
 		} else {
 			return p.isAnaliseSetorDeCompras();
 		}
