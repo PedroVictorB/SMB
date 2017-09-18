@@ -31,11 +31,15 @@ public class MainProgressao {
 
 		// COORDENADOR AVALIA
 		solicitacao.setAnaliseCoordenador(true);
+		solicitacao.setAnaliseSetorDeCompras(true);
 		api.completeTask(TarefaSolicitacao.ANALISE_DO_COORDENADOR, idSolicitacao);
 		
 		// SETOR DE COMPRAS AVALIA
-		solicitacao.setAnaliseSetorDeCompras(true);
+		
 		api.completeTask(TarefaSolicitacao.ANALISE_DO_SETOR_DE_COMPRAS, idSolicitacao);
+		
+		// FLUXO DE COMPRAS
+		api.completeTask(TarefaSolicitacao.FLUXO_DE_COMPRAS, idSolicitacao);
 		
 		// FLUXO DE TOMBAMENTO
 		api.completeTask(TarefaSolicitacao.FLUXO_DE_TOMBAMENTO, idSolicitacao);

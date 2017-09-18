@@ -19,10 +19,10 @@ public class GatewaySolicitacao extends GatewayObject<Solicitacao> {
 	
 	public boolean isAnaliseSetorComprasOk() {
 		Solicitacao p = SolicitacaoDAO.getInstance().procurarSolicitacao(getSigId());
-		if (!p.isAnaliseSetorDeCompras()) {
-			throw new RuntimeException("Informação não disponível: isAnaliseSetorComprasOk()");
-		} else {
+		if (p.isAnaliseSetorDeCompras()) {
 			return p.isAnaliseSetorDeCompras();
+		} else {
+			throw new RuntimeException("Informação não disponível: isAnaliseSetorComprasOk()");
 		}
 	}
 	
